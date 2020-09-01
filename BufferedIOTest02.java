@@ -1,0 +1,29 @@
+package kr.or.ddit.basic;
+//9월1일
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class BufferedIOTest02 {
+
+	public static void main(String[] args) {
+		// 문자 기반의 Buffered스트림 사용 연습
+		
+		try {
+			FileReader fr = new FileReader("./src/kr/or/ddit/basic/FileTest01.java"); //기반이 되는 파일
+			BufferedReader br = new BufferedReader(fr); // 버퍼의 기본 크기(8192byte)로  객체 생성
+			
+			String temp = "";
+			// readLine()메서드 ==> 한 줄씩 데이터를 읽어오는데 읽어올 데이터가 없으면 null을 반환한다.
+			for(int i=1; (temp = br.readLine())!= null; i++){
+				System.out.printf("%4d : %s\n", i, temp);
+			}
+			br.close();	// 스트림 닫기
+			
+		} catch (IOException e) {
+			// TODO: handle exception
+		}
+
+	}
+
+}
